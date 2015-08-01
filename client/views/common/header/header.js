@@ -1,3 +1,11 @@
-//TODO Add code for login/logout button
-//TODO Link accounts system up to framework
+Template.header.helpers({
+	"showUser": function() {
+		return Meteor.user().emails[0].address;
+	}
+});
 
+Template.header.events({
+	"click #logout": function() {
+		Meteor.logout();
+	}
+});

@@ -6,9 +6,18 @@
 			<a class="item" id="site-header" href="/">AniTrack</a>
 
 			<div class="right menu">
-				<div class="item">
-					<a class="ui primary button" href="/user_account">Sign In</a>
-				</div>
+				{{#if currentUser}}
+					<div class="item">
+						<h4>{{showUser}}</h4>
+					</div>
+					<div class="item">
+						<a class="ui primary button" id="logout">Logout</a>
+					</div>
+				{{else}}
+					<div class="item">
+						<a class="ui primary button" href="/user_account">Sign In</a>
+					</div>
+				{{/if}}
 			</div>
 		</div>
 	</div>
