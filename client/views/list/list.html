@@ -1,0 +1,19 @@
+<template name="list">
+	{{> header}}
+	<div class="ui vertical masthead center aligned segment">
+		<div class="ui text container" id="anime_list_container">
+			<h1>My Anime List</h1>
+			{{#each animeList}}
+			<ul id="anime_list">
+				<li class="anime {{selectedAnime}}">{{name}}</li>
+			</ul>
+			{{/each}}
+			<form>
+				<input type="text" name="animeName"><br />
+				<input type="submit" value="Add Anime">
+				<input type="button" class="remove" value="Remove Anime">
+			</form>
+		</div>
+	</div>
+	{{> footer}}
+</template>
