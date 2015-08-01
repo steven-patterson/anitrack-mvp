@@ -8,3 +8,7 @@ meteor-platform
 semantic:ui
 iron:router
 semantic:ui-css
+accounts-password
+accounts-base
+useraccounts:core
+useraccounts:semantic-ui

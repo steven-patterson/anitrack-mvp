@@ -5,3 +5,7 @@ Router.route('/', function () {
 Router.route("/list", function() {
 	this.render("list");
 });
+
+Router.route("/user_account", function() {
+	this.render("userAccount");
+});
