@@ -68,7 +68,8 @@
 	}
 }
 
-/* ANIME LIST STYLE */
+/* ANIME LIST STYLES */
+/*==================*/
 #anime_list_container {
 	border: 5px solid black;
 }
@@ -79,4 +80,13 @@
 
 .selected {
 	background-color: yellow;
+}
+
+/* SIGN IN/REGISTER PAGE STYLES */
+/*==================*/
+
+#accountFormContainer {
+	margin-top: 6%;
+	margin-left: 20%;
+	margin-right: 20%;
 }
