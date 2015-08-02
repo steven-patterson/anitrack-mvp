@@ -1,6 +1,7 @@
 Template.list.helpers({
 	"animeList": function() {
-		return AnimeLists.find();
+		var currentUserId = Meteor.userId();
+		return AnimeLists.find({});
 	},
 	"selectedAnime": function() {
 		var animeId = this._id;
@@ -15,7 +16,8 @@ Template.list.events({
 	"submit form": function(event) {
 		event.preventDefault();
 		var animeName = event.target.animeName.value;
-		Meteor.call("insertAnimeData", animeName);
+		var currentUserId = Meteor.userId();
+		Meteor.call("insertAnimeData", animeName, currentUserId);
 	},
 	"click .anime": function() {
 		var animeId = this._id;

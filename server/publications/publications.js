@@ -1,3 +1,4 @@
 Meteor.publish("animeLists", function() {
-	return AnimeLists.find({});
+	var currentUserId = this.userId;
+	return AnimeLists.find({addedBy: currentUserId});
 });

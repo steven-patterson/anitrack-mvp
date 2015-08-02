@@ -1,7 +1,8 @@
 Meteor.methods({
-	"insertAnimeData": function(animeName) {
+	"insertAnimeData": function(animeName, currentUserId) {
 		AnimeLists.insert({
-			name: animeName
+			name: animeName,
+			addedBy: currentUserId
 		});
 	},
 	"removeAnimeData": function(selectedAnime) {
