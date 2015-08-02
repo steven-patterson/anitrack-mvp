@@ -18,6 +18,7 @@ Template.list.events({
 		var animeName = event.target.animeName.value;
 		var currentUserId = Meteor.userId();
 		Meteor.call("insertAnimeData", animeName, currentUserId);
+		$("#listForm")[0].reset();
 	},
 	"click .anime": function() {
 		var animeId = this._id;
