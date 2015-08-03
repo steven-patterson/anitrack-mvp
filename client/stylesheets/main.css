@@ -70,9 +70,6 @@
 
 /* ANIME LIST STYLES */
 /*==================*/
-#anime_list_container {
-	border: 5px solid black;
-}
 
 #anime_list {
 	list-style-type: none;
