@@ -1,26 +1,35 @@
 <template name="list">
 	{{> header}}
-	<div class="ui four column stackable grid">
-		<div class="column"></div>
-		<div class="column">
-			<div class="column left aligned">
-				<h2>My Anime List</h2>
-				{{#each animeList}}
-				<ul id="anime-list">
-					<li class="anime {{selectedAnime}}">{{name}}</li>
-				</ul>
-				{{/each}}
-				<form id="listForm">
-					<input type="text" name="animeName"><br />
-					<input type="submit" class= "anime-list-button" value="Add Anime">
-					<input type="button" class="remove anime-list-button" value="Remove Anime">
-				</form>
+	<div class="ui six column stackable grid">
+		<div class="four wide column"></div>
+		<div class="four wide column">
+			<h2>My Anime List</h2>
+			{{#each animeList}}
+			<ul id="anime-list">
+				<li class="anime {{selectedAnime}}">{{name}}</li>
+			</ul>
+			{{/each}}
+			<form id="listForm">
+				<input type="text" name="animeName"><br />
+				<input type="submit" class= "anime-list-button" value="Add Anime">
+				<input type="button" class="remove anime-list-button" value="Remove Anime">
+			</form>
+		</div>
+		<div class="six wide column">
+			<div class="row">
+				<h2>Airing Anime Chart</h2><br>
+			</div>
+			<div class="row">
+				<img src="http://placehold.it/100x200">
+				<img src="http://placehold.it/100x200">
+				<img src="http://placehold.it/100x200">
+			</div>
+			<div class="row">
+				<img src="http://placehold.it/100x200">
+				<img src="http://placehold.it/100x200">
+				<img src="http://placehold.it/100x200">
 			</div>
 		</div>
-		<div class="column">
-			<h2>Airing Anime Chart Here</h2>
-		</div>
-		<div class="column"></div>
 	</div>
 	{{> footer}}
 </template>
