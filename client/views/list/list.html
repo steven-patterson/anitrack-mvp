@@ -1,19 +1,26 @@
 <template name="list">
 	{{> header}}
-	<div class="ui vertical masthead center aligned segment">
-		<div class="ui text container" id="anime_list_container">
-			<h1>My Anime List</h1>
-			{{#each animeList}}
-			<ul id="anime_list">
-				<li class="anime {{selectedAnime}}">{{name}}</li>
-			</ul>
-			{{/each}}
-			<form id="listForm">
-				<input type="text" name="animeName"><br />
-				<input type="submit" value="Add Anime">
-				<input type="button" class="remove" value="Remove Anime">
-			</form>
+	<div class="ui four column stackable grid">
+		<div class="column"></div>
+		<div class="column">
+			<div class="column left aligned">
+				<h2>My Anime List</h2>
+				{{#each animeList}}
+				<ul id="anime-list">
+					<li class="anime {{selectedAnime}}">{{name}}</li>
+				</ul>
+				{{/each}}
+				<form id="listForm">
+					<input type="text" name="animeName"><br />
+					<input type="submit" class= "anime-list-button" value="Add Anime">
+					<input type="button" class="remove anime-list-button" value="Remove Anime">
+				</form>
+			</div>
 		</div>
+		<div class="column">
+			<h2>Airing Anime Chart Here</h2>
+		</div>
+		<div class="column"></div>
 	</div>
 	{{> footer}}
 </template>

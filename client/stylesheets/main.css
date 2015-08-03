@@ -71,18 +71,24 @@
 /* ANIME LIST STYLES */
 /*==================*/
 
-#anime_list {
+#anime-list {
 	list-style-type: none;
+	text-align: left;
+	font-size: 1.2em;
 }
 
 .selected {
-	background-color: yellow;
+	background-color: #D4A8FF;
+}
+
+.anime-list-button {
+	margin-top: 1em;
 }
 
 /* SIGN IN/REGISTER PAGE STYLES */
 /*==================*/
 
-#accountFormContainer {
+#account-form-container{
 	margin-top: 6%;
 	margin-left: 20%;
 	margin-right: 20%;
