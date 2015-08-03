@@ -13,7 +13,6 @@ accounts-base
 useraccounts:core
 useraccounts:semantic-ui
 anonyfox:scrape
-lai:meteor-xray
 meteorhacks:npm
 http
 
