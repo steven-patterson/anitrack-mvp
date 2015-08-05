@@ -1,10 +1,14 @@
 var cheerio = Meteor.npmRequire("cheerio");
 
 Meteor.methods({
-    getTime: function () {
-        result = Meteor.http.get("http://anichart.net/airing");
+    getChartData: function () {
+        result = Meteor.http.get("https://www.livechart.me/summer-2015/tv");
         $ = cheerio.load(result.content);
-        CurrentTime = $('a').text();
-        return CurrentTime;
+        // CurrentTime = $('.main-title').text();
+        animeTitle = $('.main-title').map(function(i, el) {
+          // this === el
+          return "<li>" + $(this).text() + "</li>";
+        }).get().join(' ');
+        return animeTitle;
     }
 });

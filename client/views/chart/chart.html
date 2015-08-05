@@ -1,18 +1,10 @@
 <template name="chart">
 	<div class="row">
-		<h2>Airing Anime Chart</h2><br>
+		<h2>Airing Anime Chart</h2>
 	</div>
 	<div class="row">
-		{{chartData}}
-	</div>
-	<div class="row">
-		<img src="http://placehold.it/100x200">
-		<img src="http://placehold.it/100x200">
-		<img src="http://placehold.it/100x200">
-	</div>
-	<div class="row">
-		<img src="http://placehold.it/100x200">
-		<img src="http://placehold.it/100x200">
-		<img src="http://placehold.it/100x200">
+	<ul class="airing-list">
+		{{{chartData}}}
+	</ul>
 	</div>
 </template>

@@ -4,7 +4,6 @@ Template.chart.helpers({
 	}
 });
 
-Meteor.call("getTime", function(error, result) {
-	console.log(result);
+Meteor.call("getChartData", function(error, result) {
 	Session.set("animes", result);
 });
