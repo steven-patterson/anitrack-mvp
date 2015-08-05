@@ -2,13 +2,19 @@ var cheerio = Meteor.npmRequire("cheerio");
 
 Meteor.methods({
     getChartData: function () {
-        result = Meteor.http.get("https://www.livechart.me/summer-2015/tv");
+        var result = Meteor.http.get("https://www.livechart.me/summer-2015/tv");
         $ = cheerio.load(result.content);
-        // CurrentTime = $('.main-title').text();
-        animeTitle = $('.main-title').map(function(i, el) {
-          // this === el
-          return "<li>" + $(this).text() + "</li>";
+
+        var animeTitle = $('.anime-card').find(".main-title").map(function(i, el) {
+        	var animeDate = $(this).siblings().find(".poster-wrap > .episode-countdown").html();
+        	if (animeDate === null) {
+        		return "<li>" + $(this).text()+ "</li><br />";
+        	} else {
+        		return "<li>" + $(this).text()+ "<br /> "
+        		+ animeDate + "</li><br />";
+        	}
         }).get().join(' ');
+
         return animeTitle;
     }
 });
