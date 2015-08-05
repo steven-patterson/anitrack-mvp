@@ -13,3 +13,8 @@ accounts-base
 useraccounts:core
 useraccounts:semantic-ui
 anonyfox:scrape
+meteorhacks:npm
+http
+
+
+npm-container
