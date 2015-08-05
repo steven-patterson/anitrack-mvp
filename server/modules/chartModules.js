@@ -2,9 +2,9 @@ var cheerio = Meteor.npmRequire("cheerio");
 
 Meteor.methods({
     getTime: function () {
-        result = Meteor.http.get("http://www.timeanddate.com/worldclock/city.html?n=136");
+        result = Meteor.http.get("http://anichart.net/airing");
         $ = cheerio.load(result.content);
-        CurrentTime = $('#ct').html();
+        CurrentTime = $('a').text();
         return CurrentTime;
     }
 });
