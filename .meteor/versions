@@ -1,6 +1,5 @@
 accounts-base@1.2.0
 accounts-password@1.1.1
-anonyfox:scrape@0.0.10
 autoupdate@1.2.1
 base64@1.0.3
 binary-heap@1.0.3
@@ -13,7 +12,6 @@ coffeescript@1.0.6
 ddp@1.1.0
 deps@1.0.7
 dfischer:phantomjs@1.0.4
-digilord:sugarjs@1.4.1
 ejson@1.0.6
 email@1.0.6
 fastclick@1.0.3
@@ -46,7 +44,6 @@ minifiers@1.1.5
 minimongo@1.0.8
 mobile-status-bar@1.0.3
 mongo@1.1.0
-nefiltari:yaki@0.1.81
 npm-bcrypt@0.7.8_2
 npm-container@1.1.0
 observe-sequence@1.0.6
@@ -76,4 +73,3 @@ useraccounts:core@1.11.1
 useraccounts:semantic-ui@1.11.1
 webapp@1.2.0
 webapp-hashing@1.0.3
-wizonesolutions:underscore-string@1.0.0
