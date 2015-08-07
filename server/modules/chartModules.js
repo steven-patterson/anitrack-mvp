@@ -6,7 +6,7 @@ var animeTitle = null;
 
 Meteor.startup(function(){
 	var url = "https://www.livechart.me/summer-2015/tv";
-	var user_agent = 'Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14';
+	var user_agent = 'Firefox/5.0';
 	var browser = new Browser({userAgent: user_agent, debug: true, waitFor: 10000});
 
 	browser.visit(url, function() {
