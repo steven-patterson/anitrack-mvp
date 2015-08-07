@@ -3,6 +3,8 @@ var request= Meteor.npmRequire('superagent');
 
 var animeTitles = null;
 var animeImages = null;
+var cardsObj = {};
+var animeHtml = "";
 
 Meteor.startup(function(){
 	var url = "http://www.anime-planet.com/anime/seasons/summer-2015";
@@ -14,6 +16,8 @@ Meteor.startup(function(){
 		.end(function(err, res){
 			$ = cheerio.load(res.text);
 			animeTitles = $('.card').find("h4").map(function(i, el) {
+				var animeImage = $(this).siblings().find("div.crop.portrait img").attr("data-src");
+				cardsObj[$(this).text()] = animeImage;
 				return $(this).text();
 			}).get().join(", ");
 			animeImages = $(".card").find("div.crop.portrait img").map(function(i, el) {
@@ -27,15 +31,11 @@ Meteor.methods({
 	getChartData: function () {
 		var animeArr = animeTitles.split(",");
 		var imageArr = animeImages.split(",");
-
-		var cardsObj = {};
-		for (var i = 0; i < animeArr.length; i++) {
-			cardsObj[animeArr[i]] = imageArr[i];
+		for (var key in cardsObj) {
+			animeHtml += "<li>" + key + "</li>";
 		}
-		console.log(cardsObj);
-		console.log(animeArr.length);
-		console.log(imageArr.length);
-		return "testing";
+		console.log(animeHtml);
+		return animeHtml;
 	}
 });
 
