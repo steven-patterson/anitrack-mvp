@@ -2,7 +2,6 @@ var cheerio = Meteor.npmRequire("cheerio");
 var request= Meteor.npmRequire('superagent');
 
 var cardsObj = {};
-var airTimeObj = {};
 var animeHtml = "";
 
 
@@ -24,17 +23,6 @@ Meteor.startup(function(){
 				cardsObj[$(this).text()] = animeImage;
 				return $(this).text();
 			}).get().join(", ");
-		});
-
-	request
-		.get("http://animecalendar.net/")
-		.set("User-Agent", user_agent)
-		.end(function(err, res) {
-			$ = cheerio.load(res.text);
-			var airTimes = $("div.ep_box h3").map(function(i, el) {
-				var animeTime = $(this).next().text().trim();
-				airTimeObj[$(this).text()] = animeTime;
-			});
 		});
 });
 
