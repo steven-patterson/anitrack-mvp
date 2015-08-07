@@ -12,9 +12,13 @@ Meteor.startup(function(){
 		.set('User-Agent', user_agent)
 		.end(function(err, res){
 			$ = cheerio.load(res.text);
-			animeTitle = $(".cardDeck h4").map(function(i, el) {
-				return "<li>" + $(this).text()+ "</li><br />";
-			}).get().join(' ');
+			animeTitle = $('.card').find("h4").map(function(i, el) {
+						var animeImage = $(this).siblings().find("div.crop.portrait img").attr("data-src");
+						var animeImageHtml = "<img src='http://www.anime-planet.com" + animeImage + "'>";
+						console.log(animeImage);
+						//Format the results into an HTML list style with each entry as a separate li
+						return "<li>" + $(this).text()+ "</li><br />" + animeImageHtml;
+					}).get().join(' '); //Join all li together
 		});
 });
 
