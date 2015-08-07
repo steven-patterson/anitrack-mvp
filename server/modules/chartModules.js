@@ -32,28 +32,9 @@ Meteor.methods({
 		var animeArr = animeTitles.split(",");
 		var imageArr = animeImages.split(",");
 		for (var key in cardsObj) {
-			animeHtml += "<li>" + key + "</li>";
+			animeHtml += "<li>" + key + "<br />"
+			+ "<img src='http://www.anime-planet.com" + cardsObj[key] + "'></li>";
 		}
-		console.log(animeHtml);
 		return animeHtml;
 	}
 });
-
-// function attachTime(animeString) {
-// 	request
-// 		.get("https://www.livechart.me/schedule/tv")
-// 		.set("User-Agent", 'Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14')
-// 		.end(function(err, res) {
-// 			$ = cheerio.load(res.text);
-// 			var animeCard = $('.anime-card').map(function(i, el) {
-// 				var airTime = $(this).find(".poster-wrap > .episode-countdown").html();
-// 				var mainTitle = $(this).find(".main-title").html();
-// 				if (animeString.substr(0, 5).indexOf(mainTitle.substr(0, 5)) !== -1) {
-// 					console.log(mainTitle + " == " + animeString);
-// 					console.log(airTime);
-// 				}
-// 			});
-// 		});
-// }
-// var animeImage = $(this).siblings().find("div.crop.portrait img").attr("data-src");
-// var animeImageHtml = "<img src='http://www.anime-planet.com" + animeImage + "'>";
