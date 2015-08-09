@@ -6,10 +6,12 @@ var animeHtml = "";
 function Anime (animeName, airTime) {
 	this.animeName = animeName;
 	this.airTime = airTime;
+	// this.animeImage = animeImage;
 }
 
 var formatHtml = function (animeName, airTime) {
 	return "<li>" + animeName + "<br />" + airTime + "</li><hr />";
+	// return "<li>" + animeName + "<br />" + airTime + "</li><br />" + "<img src='" + animeImage + "'>" + "<hr />";
 }
 
 Meteor.startup(function() {
@@ -19,7 +21,7 @@ Meteor.startup(function() {
 	var request = HTTP.call("GET", url, user_agent);
 	//Load received data
 	$ = cheerio.load(request.content);
-	//Traverse and scrape the name and airing time
+	//Traverse and scrape the necessary data
 	var animeCards = $('div.anime-card').find("h3").map(function(i, el) {
 		var animeName = $(this).text();
 		var airTime = $(this).siblings().find("div.poster-wrap div.episode-countdown").text();
@@ -36,6 +38,7 @@ Meteor.methods({
 		for (var i = 0; i < animeArray.length; i++) {
 			var aTitle = animeArray[i].animeName;
 			var aTime = animeArray[i].airTime;
+			// var aImage = animeArray[i].animeImage;
 			//Format entry as html and add to string
 			animeHtml += formatHtml(aTitle, aTime);
 		}
