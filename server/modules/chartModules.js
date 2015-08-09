@@ -46,19 +46,3 @@ Meteor.methods({
 		return animeHtml + imagesHtml;
 	}
 });
-
-// function searchAnime(animeName) {
-// 	var url = "http://www.anime-planet.com/anime/all";
-// 	var user_agent = 'Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14';
-// 	var animeImage = "";
-
-// 	request
-// 		.get(url)
-// 		.set("User-Agent", user_agent)
-// 		.query({name: animeName})
-// 		.end(function(err, res) {
-// 			$ = cheerio.load(res.text);
-// 			animeImage = $("div.crop.portrait img").attr("data-src");
-// 			console.log(animeImage);
-// 		});
-// }
