@@ -6,12 +6,10 @@ var animeHtml = "";
 function Anime (animeName, airTime) {
 	this.animeName = animeName;
 	this.airTime = airTime;
-	// this.animeImage = animeImage;
 }
 
 var formatHtml = function (animeName, airTime) {
 	return "<li>" + animeName + "<br />" + airTime + "</li><hr />";
-	// return "<li>" + animeName + "<br />" + airTime + "</li><br />" + "<img src='" + animeImage + "'>" + "<hr />";
 }
 
 Meteor.startup(function() {
@@ -29,7 +27,6 @@ Meteor.startup(function() {
 		var animeEntry = new Anime(animeName, airTime);
 		animeArray.push(animeEntry);
 	});
-
 });
 
 Meteor.methods({
