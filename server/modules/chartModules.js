@@ -43,14 +43,6 @@ var imageFetch = function(animeName) {
 		var animePicture = placeHolder;
 		return animePicture;
 	}
-
-	// if (url !== undefined && url.indexOf("myanimelist" !== -1)) {
-	// 	var animePicture = $("#canvas").find("img").attr("src");
-	// 	return animePicture;
-	// } else {
-	// 	var animePicture = null;
-	// 	return animePicture;
-	// }
 }
 
 var formatHtml = function (animeName, airTime, animePicture) {
