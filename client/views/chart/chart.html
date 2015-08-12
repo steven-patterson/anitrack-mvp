@@ -4,7 +4,12 @@
 	</div>
 	<div class="row">
 	<ul class="airing-list">
-		{{{chartData}}}
+	{{#each chartData}}
+		<li>{{animeName}}</li>
+		<li>{{airTime}}</li>
+		<img src={{animePicture}}>
+		<hr />
+	{{/each}}
 	</ul>
 	</div>
 </template>
