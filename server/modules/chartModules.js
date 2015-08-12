@@ -13,8 +13,7 @@ function Anime (animeName, airTime) {
 			"cx": "001143011821726750291:my2ypeogiem",
 			"q": animeName
 		}, headers: {"User-Agent": "Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14"}});
-		$ = cheerio.load(request.data);
-		console.log(request.data);
+		console.log(request.data.items[0]);
 		this.animePicture = null;
 	}
 }
