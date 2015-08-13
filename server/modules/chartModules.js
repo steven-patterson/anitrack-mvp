@@ -16,7 +16,12 @@ var imageFetch = function(imageSource) {
 			});
 		$ = cheerio.load(request.content);
 		var animePicture = $("img.screenshots").attr("src");
-		return animePicture;
+		if (animePicture !== undefined) {
+			return animePicture;
+		} else {
+			console.log("Undefined!");
+			return "inc/img/blank_main.jpg";
+		}
 	} catch(error) {
 		console.log(error);
 		return "inc/img/blank_main.jpg";
