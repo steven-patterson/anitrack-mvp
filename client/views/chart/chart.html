@@ -5,10 +5,10 @@
 	<div class="row">
 	<ul class="airing-list">
 	{{#each chartData}}
-		<li>{{animeName}}</li>
+		<li><a href={{detailsLink}}>{{animeName}}</a></li>
 		<li>{{airTime}}</li>
-		<img src={{animePicture}}>
-		<br /><br />
+		<li><img src={{animePicture}}></li>
+		<br />
 	{{/each}}
 	</ul>
 	</div>

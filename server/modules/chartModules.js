@@ -1,35 +1,26 @@
 var cheerio = Meteor.npmRequire("cheerio");
 var animeArray = [];
 
-function Anime (animeName, airTime) {
+function Anime (animeName, airTime, detailsLink) {
 	this.animeName = animeName;
 	this.airTime = airTime;
-	this.animePicture = imageFetch(animeName);
+	this.detailsLink = detailsLink;
+	this.animePicture = "http://www.anime-planet.com/" + imageFetch(detailsLink);
 }
 
-var imageFetch = function(animeName) {
-	var request = HTTP.call("GET", "http://www.bing.com/images/search", {params: {
-		"q": String(animeName) + " anime",
-		"qs": "n",
-		"form": "QBIR",
-		"pq": String(animeName) + " anime",
-		"sc": "0-19",
-		"sp": "-1",
-		"sk": ""
-	}, headers: {"User-Agent": "Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14"}});
-	$ = cheerio.load(request.content);
-	var placeHolder = "http://placehold.it/230x170";
-	var animePicture = $("#canvas").find("img").attr("src");
-
-	if (animePicture !== undefined) {
+var imageFetch = function(imageSource) {
+	try {
+		var request = HTTP.call("GET", imageSource,
+			{
+				headers: {"User-Agent": "Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14"}
+			});
+		$ = cheerio.load(request.content);
+		var animePicture = $("img.screenshots").attr("src");
 		return animePicture;
-	} else {
-		return placeHolder;
+	} catch(error) {
+		console.log(error);
+		return "inc/img/blank_main.jpg";
 	}
-}
-
-var formatHtml = function (animeName, airTime, animePicture) {
-	return "<li>" + animeName + "<br />" + airTime + "</li><br />" + "<img src='" + animePicture + "'>" + "<hr />";
 }
 
 Meteor.startup(function() {
@@ -44,8 +35,9 @@ Meteor.startup(function() {
 	var animeCards = $('div.anime-card').find("h3").map(function(i, el) {
 		var animeName = $(this).text();
 		var airTime = $(this).siblings().find("div.poster-wrap div.episode-countdown").text();
+		var detailsLink = $(this).siblings().find("ul.related-links li a.anime-planet-icon").attr("href");
 		//Store in an object and push to array
-		var animeEntry = new Anime(animeName, airTime);
+		var animeEntry = new Anime(animeName, airTime, detailsLink);
 		animeArray.push(animeEntry);
 	});
 });
