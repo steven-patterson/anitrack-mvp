@@ -1,4 +1,5 @@
 var cheerio = Meteor.npmRequire("cheerio");
+var user_agent = {"User-Agent": "Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14"};
 var animeArray = [];
 
 function Anime (animeName, airTime, detailsLink) {
@@ -10,20 +11,15 @@ function Anime (animeName, airTime, detailsLink) {
 
 var imageFetch = function(imageSource) {
 	try {
-		var request = HTTP.call("GET", imageSource,
-			{
-				headers: {"User-Agent": "Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14"}
-			});
+		var request = HTTP.call("GET", imageSource, user_agent);
 		$ = cheerio.load(request.content);
 		var animePicture = $("img.screenshots").attr("src");
 		if (animePicture !== undefined) {
 			return animePicture;
 		} else {
-			console.log("Undefined!");
 			return "inc/img/blank_main.jpg";
 		}
 	} catch(error) {
-		console.log(error);
 		return "inc/img/blank_main.jpg";
 	}
 }
@@ -31,9 +27,7 @@ var imageFetch = function(imageSource) {
 Meteor.startup(function() {
 	//Send request for data from anime schedule source
 	var url = "https://www.livechart.me/schedule/tv";
-	var user_agent = {"User-Agent": "Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14"};
 	var request = HTTP.call("GET", url, user_agent);
-
 	//Load received data
 	$ = cheerio.load(request.content);
 	//Traverse and scrape the necessary data
