@@ -4,12 +4,13 @@
 	</div>
 	<div>
 		<ul class="airing-list">
-		{{#each chartData}}
-			<li>{{animeName}}</li>
-			<li>{{airTime}}</li>
-			<li><a href={{detailsLink}}>More details...</a></li>
-			<br />
-		{{/each}}
+			{{#each chartData}}
+				<li>{{animeName}}</li>
+				<li>{{airTime}}</li>
+				<li><img src={{animePicture}}></li>
+				<li><a href={{detailsLink}}>More details...</a></li>
+				<br />
+			{{/each}}
 		</ul>
 	</div>
 </template>

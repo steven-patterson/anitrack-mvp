@@ -6,7 +6,7 @@ function Anime (animeName, airTime, detailsLink) {
 	this.animeName = animeName;
 	this.airTime = airTime;
 	this.detailsLink = detailsLink;
-	// this.animePicture = imageFetch(detailsLink);
+	this.animePicture = imageFetch(detailsLink);
 }
 
 Meteor.startup(function() {
@@ -19,7 +19,7 @@ Meteor.startup(function() {
 	var animeCards = $('div.anime-card').find("h3").map(function(i, el) {
 		var animeName = $(this).text();
 		var airTime = $(this).siblings().find("div.poster-wrap div.episode-countdown").text();
-		var detailsLink = $(this).siblings().find("ul.related-links li a.mal-icon").attr("href");
+		var detailsLink = $(this).siblings().find("ul.related-links li a.anime-planet-icon").attr("href");
 		//Store in an object and push to array
 		var animeEntry = new Anime(animeName, airTime, detailsLink);
 		animeArray.push(animeEntry);
@@ -32,19 +32,19 @@ Meteor.methods({
 	}
 });
 
-// var imageFetch = function(imageSource) {
-// 	try {
-// 		var request = HTTP.call("GET", imageSource, user_agent);
-// 		$ = cheerio.load(request.content);
-// 		var animePicture = $("img.screenshots").attr("src");
-// 		if (request.statusCode === 200 && animePicture !== undefined) {
-// 			return "http://www.anime-planet.com/" + animePicture;
-// 		} else {
-// 			console.log(request.statusCode);
-// 			return "http://placehold.it/162x230";
-// 		}
-// 	} catch(error) {
-// 		console.log(error);
-// 		return "http://placehold.it/230x162";
-// 	}
-// }
+var imageFetch = function(imageSource) {
+	try {
+		var request = HTTP.call("GET", imageSource, user_agent);
+		$ = cheerio.load(request.content);
+		var animePicture = $("img.screenshots").attr("src");
+		if (request.statusCode === 200 && animePicture !== undefined) {
+			return "http://www.anime-planet.com/" + animePicture;
+		} else {
+			console.log(request.statusCode);
+			return "http://placehold.it/162x230";
+		}
+	} catch(error) {
+		console.log(error);
+		return "http://placehold.it/162x230";
+	}
+}
