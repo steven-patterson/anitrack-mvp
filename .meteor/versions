@@ -15,6 +15,7 @@ dfischer:phantomjs@1.0.4
 ejson@1.0.6
 email@1.0.6
 fastclick@1.0.3
+fourseven:scss@3.2.0
 froatsnook:request@2.53.3
 geojson-utils@1.0.3
 html-tools@1.0.4

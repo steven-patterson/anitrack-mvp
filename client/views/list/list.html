@@ -1,8 +1,7 @@
 <template name="list">
 	{{> header}}
-	<div class="ui six column stackable grid">
-		<div class="four wide column"></div>
-		<div class="four wide column">
+	<div class="ui twelve column stackable grid container">
+		<div class="three wide centered column">
 			<h2>My Anime List</h2>
 			{{#each animeList}}
 			<ul id="anime-list">
@@ -15,7 +14,7 @@
 				<input type="button" class="remove anime-list-button" value="Remove Anime">
 			</form>
 		</div>
-		<div class="six wide column">
+		<div class="six wide centered column">
 			{{> chart}}
 		</div>
 	</div>
