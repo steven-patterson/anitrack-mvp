@@ -5,10 +5,10 @@
 			<div class="ui raised container segment" id="anime-container">
 				<h2>My Anime List</h2>
 				{{#each animeList}}
-				<ul id="anime-list">
-					<li class="anime"><span class="{{selectedAnime}}">{{name}}</span></li>
-					<li id="air-time">{{airing}}</li>
-				</ul>
+					<ul id="anime-list">
+						<li class="anime"><span class="{{selectedAnime}}">{{name}}</span></li>
+						<li id="air-time">{{animeAiring}}</li>
+					</ul>
 				{{/each}}
 				<form id="listForm">
 					<input type="button" class="remove anime-list-button" value="Remove Anime">
