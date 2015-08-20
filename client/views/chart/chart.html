@@ -1,7 +1,10 @@
 <template name="chart">
-	<div>
+	<div class="ui raised container segment">
 		<ul class="airing-list">
 			{{#each chartData}}
+				<div id="add-anime-box">
+					<a href="#" id="add-anime">+</a>
+				</div>
 				<li><h3>{{animeName}}</h3></li>
 				<li>{{airTime}}</li>
 				<li><a href={{detailsLink}}>More details...</a></li>

@@ -1,6 +1,6 @@
 <template name="list">
 	{{> header}}
-	<div class="ui twelve column stackable grid container">
+	<div class="ui sixteen column stackable grid container">
 		<div class="six wide column">
 			<div class="ui raised container segment" id="anime-container">
 				<h2>My Anime List</h2>
@@ -10,16 +10,13 @@
 				</ul>
 				{{/each}}
 				<form id="listForm">
-					<input type="text" name="animeName"><br />
 					<input type="submit" class= "anime-list-button" value="Add Anime">
 					<input type="button" class="remove anime-list-button" value="Remove Anime">
 				</form>
 			</div>
 		</div>
-		<div class="six wide centered column">
-			<div class="ui raised container segment">
-				{{> chart}}
-			</div>
+		<div class="seven wide centered column">
+			{{> chart}}
 		</div>
 	</div>
 	{{> footer}}

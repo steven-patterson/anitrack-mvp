@@ -1,3 +1,7 @@
+Template.list.rendered = function() {
+	$("#derp").fadeOut("slow");
+}
+
 Template.list.helpers({
 	//Return the anime list registered to the current user id
 	"animeList": function() {
@@ -36,3 +40,13 @@ Template.list.events({
 		Meteor.call("removeAnimeData", selectedAnime);
 	}
 });
+
+
+/*
+TODO:
++ Remove input box
+~ Add plus button to anime entries
+ui-icon-plus
+	~ On click "plus" button
+		~ Add corresponding anime to "My Anime List"
+*/
