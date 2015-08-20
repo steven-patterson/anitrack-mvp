@@ -7,10 +7,10 @@
 				{{#each animeList}}
 				<ul id="anime-list">
 					<li class="anime"><span class="{{selectedAnime}}">{{name}}</span></li>
+					<li id="air-time">{{airing}}</li>
 				</ul>
 				{{/each}}
 				<form id="listForm">
-					<input type="submit" class= "anime-list-button" value="Add Anime">
 					<input type="button" class="remove anime-list-button" value="Remove Anime">
 				</form>
 			</div>

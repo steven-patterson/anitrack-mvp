@@ -19,16 +19,6 @@ Template.list.helpers({
 });
 
 Template.list.events({
-	"submit form": function(event) {
-		event.preventDefault();
-		//Get the value of the input box for anime submission
-		var animeName = event.target.animeName.value;
-		var currentUserId = Meteor.userId();
-		//Insert the value of the submission box to the user anime list
-		Meteor.call("insertAnimeData", animeName, currentUserId);
-		//Clear the submission box for next anime value
-		$("#listForm")[0].reset();
-	},
 	"click .anime": function() {
 		//Pass set selectedAnime value for function to apply "selected" CSS class
 		var animeId = this._id;
@@ -38,6 +28,13 @@ Template.list.events({
 		//Get clicked anime and call the remove function
 		var selectedAnime= Session.get("selectedAnime");
 		Meteor.call("removeAnimeData", selectedAnime);
+	},
+	"click #add-anime": function() {
+		var currentUserId = Meteor.userId();
+		var animeName = this.animeName;
+		var airTime = this.airTime;
+		//Insert the value of the submission box to the user anime list
+		Meteor.call("insertAnimeData", animeName, airTime, currentUserId);
 	}
 });
 
@@ -45,8 +42,7 @@ Template.list.events({
 /*
 TODO:
 + Remove input box
-~ Add plus button to anime entries
-ui-icon-plus
-	~ On click "plus" button
-		~ Add corresponding anime to "My Anime List"
++ Add plus button to anime entries
+	+ On click "plus" button
+		+ Add corresponding anime to "My Anime List"
 */

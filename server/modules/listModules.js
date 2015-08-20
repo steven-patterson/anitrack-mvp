@@ -1,8 +1,9 @@
 Meteor.methods({
 	//Insert passed anime name and associated user ID into anime list DB
-	"insertAnimeData": function(animeName, currentUserId) {
+	"insertAnimeData": function(animeName, airTime, currentUserId) {
 		AnimeLists.insert({
 			name: animeName,
+			airing: airTime,
 			addedBy: currentUserId
 		});
 	},
