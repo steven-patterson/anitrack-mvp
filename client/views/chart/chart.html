@@ -1,11 +1,8 @@
 <template name="chart">
 	<div>
-		<h2>Airing Anime Chart</h2>
-	</div>
-	<div>
 		<ul class="airing-list">
 			{{#each chartData}}
-				<li>{{animeName}}</li>
+				<li><h3>{{animeName}}</h3></li>
 				<li>{{airTime}}</li>
 				<li><a href={{detailsLink}}>More details...</a></li>
 				<br />
