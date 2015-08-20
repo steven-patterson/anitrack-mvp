@@ -1,7 +1,3 @@
-Template.list.rendered = function() {
-	$("#derp").fadeOut("slow");
-}
-
 Template.list.helpers({
 	//Return the anime list registered to the current user id
 	"animeList": function() {
@@ -44,12 +40,3 @@ Template.list.events({
 		Meteor.call("insertAnimeData", animeName, currentUserId);
 	}
 });
-
-
-/*
-TODO:
-+ Remove input box
-+ Add plus button to anime entries
-	+ On click "plus" button
-		+ Add corresponding anime to "My Anime List"
-*/
