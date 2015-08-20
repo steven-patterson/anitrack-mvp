@@ -9,13 +9,10 @@ Template.list.helpers({
 		return AnimeLists.find({});
 	},
 	"animeAiring": function() {
-		var chartData = Session.get("animes");
-		for (var i = 0; i < chartData.length; i++) {
-			if (chartData[i].animeName === this.name) {
-				console.log("A match!");
-				console.log(chartData[i].animeName);
-				console.log(chartData[i].airTime);
-				return chartData[i].airTime;
+		var animeInfo = Session.get("animes");
+		for (var i = 0; i < animeInfo.length; i++) {
+			if (animeInfo[i].animeName === this.name) {
+				return animeInfo[i].airTime;
 			}
 		}
 	},
@@ -44,7 +41,7 @@ Template.list.events({
 		var currentUserId = Meteor.userId();
 		var animeName = this.animeName;
 		//Insert the value of the submission box to the user anime list
-		Meteor.call("insertAnimeData", animeName, currentUserIdSession);
+		Meteor.call("insertAnimeData", animeName, currentUserId);
 	}
 });
 
