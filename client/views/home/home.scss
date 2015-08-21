@@ -1,17 +1,15 @@
 /* HOME PAGE STYLES */
 /*==================*/
 #main-copy {
-	padding-top: 4%;
-	padding-bottom: 4%;
-	padding-left: 3%;
-	padding-right: 3%;
-	font-size: 1.5em;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	padding: 2.5em;
+	font-size: 1.3em;
 }
 
 /* Masthead */
 .masthead.segment {
 	min-height: 600px;
-	padding: .6em 0em;
 }
 .masthead .ui.menu .ui.button {
 	margin-left: 0.5em;
@@ -28,9 +26,6 @@
 }
 
 /*Vertical stripes*/
-.ui.vertical.stripe {
-	padding: 8em 0em;
-}
 .ui.vertical.stripe h3 {
 	font-size: 2em;
 }
